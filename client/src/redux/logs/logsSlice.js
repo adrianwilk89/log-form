@@ -38,7 +38,7 @@ const logsSlice = createSlice({
             state.loading = false
         },
         [fetchLogs.fulfilled]: (state, action) => {
-            state.logs = action.payload;
+            state.logs = action.payload.sort((a, b) => Number(a.timestamp) - Number(b.timestamp));
             state.loading = false;
             state.error = null;
         }
