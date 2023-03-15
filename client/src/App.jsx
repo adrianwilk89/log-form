@@ -10,7 +10,7 @@ const App = () => {
     return (
         <P.App>
             <Provider store={store}>
-                <P.Logo>Brainhub.pl log form</P.Logo>
+                <P.Logo>Log form</P.Logo>
                 <GlobalStyle />
                 <LogsPage />
             </Provider>
