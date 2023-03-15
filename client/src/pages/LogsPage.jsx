@@ -1,36 +1,26 @@
-import React, {useState} from 'react';
-import Form from '../components/Form/Form';
+import React from 'react';
+import Form from '../components/Form';
+import Logs from '../components/Logs';
+import { fetchLogs } from '../redux/logs/logsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LogsPage = () => {
 
-    const [isFetching, setIsFetching] = useState(false)
+    const dispatch = useDispatch();
 
-    const onSubmit = async (values) => {
-        setIsFetching(true)
-        try {
-            await fetch(`${process.env.SERVER_URL}/logs`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(values)
-            })
-                .then(response => {
-                    setIsFetching(false)
-                    response.json()
-                })
-                .then(response => console.log(response))
-                .catch(error => {
-                    setIsFetching(false)
-                    return error
-                })
-        } catch (error) {
-            console.error(error)
-        }
+    const onSubmit = (values) => {
+        dispatch(fetchLogs(values))
     }
 
+    const logsSlice = useSelector(state => state.logs)
+
+    const {logs} = logsSlice;
+
     return (
-        <Form onSubmit={onSubmit} isFetching={isFetching} />
+        <React.Fragment>
+            <Form onSubmit={onSubmit}/>
+            <Logs logs={logs} />
+        </React.Fragment>
     )
 }
 

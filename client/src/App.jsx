@@ -1,15 +1,19 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyles.jsx';
 import LogsPage from './pages/LogsPage.jsx';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 import * as P from './parts'
 
 const App = () => {
     return (
         <P.App>
-            <P.Logo>Brainhub.pl log form</P.Logo>
-            <GlobalStyle />
-            <LogsPage />
+            <Provider store={store}>
+                <P.Logo>Brainhub.pl log form</P.Logo>
+                <GlobalStyle />
+                <LogsPage />
+            </Provider>
         </P.App>
     )
 }
