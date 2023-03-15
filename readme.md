@@ -1,4 +1,4 @@
-# Brainhub logs form
+![Zrzut ekranu 2023-03-15 o 20 46 55](https://user-images.githubusercontent.com/13055329/225425940-3a8f2d62-8aa5-4eb6-82dd-31b15abcb9f6.png)
 
 Application was created for purposes of the recruitment process.
 
@@ -29,7 +29,7 @@ docker-compose up
 If you want to check records in database run following commands
 
 
-***Before you start you have to get database container_id to do this run ```docker ps``` and grab container_id for "postgres:11.5-alpine" image from displayed table, next paste it instead {container_id} in command bellow.*** 
+> Note: Before you start you have to get database container_id to do this run ```docker ps``` and grab container_id for "postgres:11.5-alpine" image from displayed table, next paste it instead {container_id} in command bellow.
 
 ```bash
 docker exec -it {container_id} psql -U postgres
