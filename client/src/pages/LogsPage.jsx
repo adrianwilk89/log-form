@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../components/Form';
 import Logs from '../components/Logs';
-import { fetchLogs } from '../redux/logs/logsSlice';
+import { fetchLogs } from 'Redux/logs/logsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const LogsPage = () => {
