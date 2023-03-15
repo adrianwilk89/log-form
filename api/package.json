@@ -15,7 +15,5 @@
     "prisma": "^4.11.0",
     "joi": "^17.8.4"
   },
-  "devDependencies": {
-  },
   "description": ""
 }
