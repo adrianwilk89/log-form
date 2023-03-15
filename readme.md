@@ -1,4 +1,4 @@
-# Brainhub logs form
+![Zrzut ekranu 2023-03-15 o 20 46 55](https://user-images.githubusercontent.com/13055329/225425940-3a8f2d62-8aa5-4eb6-82dd-31b15abcb9f6.png)
 
 Application was created for purposes of the recruitment process.
 
