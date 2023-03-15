@@ -1,5 +1,4 @@
 import { render, fireEvent } from '@testing-library/react';
-require('react-dom/test-utils')
 import React from 'react';
 import Form from '../Form';
 
