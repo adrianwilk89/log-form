@@ -1,0 +1,30 @@
+version: '2.4'
+services:
+  server:
+    build: .
+    container_name: logs_api
+    command: npm run start
+    depends_on: 
+      dbpostgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/src/app
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@dbpostgres:5432/logs?schema=public
+  dbpostgres:
+    image: postgres:11.5-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    container_name: logs_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: logs
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
