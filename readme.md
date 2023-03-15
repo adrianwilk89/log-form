@@ -1,4 +1,5 @@
-![Zrzut ekranu 2023-03-15 o 20 46 55](https://user-images.githubusercontent.com/13055329/225425940-3a8f2d62-8aa5-4eb6-82dd-31b15abcb9f6.png)
+![Zrzut ekranu 2023-03-15 o 22 03 03](https://user-images.githubusercontent.com/13055329/225441938-693767a3-df9d-4252-9e8d-13db4cbb8fc5.png)
+
 
 Application was created for purposes of the recruitment process.
 
