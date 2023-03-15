@@ -36,6 +36,7 @@ describe('logParser', () => {
 
         expect(logParser('E 1  Test')).toEqual(expected)
     })
+
     test('should return values for type and message when log doesnt provide values for severity and timestamp', () => {
 
         const expected = {
@@ -47,8 +48,9 @@ describe('logParser', () => {
 
         expect(logParser('E   Test')).toEqual(expected)
     })
-        test('should return undefined when log provides only message', () => {
+    
+    test('should return undefined when log provides only message', () => {
 
-            expect(logParser('Test')).toEqual(undefined)
-        })
+        expect(logParser('Test')).toEqual(undefined)
+    })
 })
