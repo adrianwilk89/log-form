@@ -29,7 +29,7 @@ docker-compose up
 If you want to check records in database run following commands
 
 
-***Before you start you have to get database container_id to do this run ```docker ps``` and grab container_id for "postgres:11.5-alpine" image from displayed table, next paste it instead {container_id} in command bellow.*** 
+> Note: Before you start you have to get database container_id to do this run ```docker ps``` and grab container_id for "postgres:11.5-alpine" image from displayed table, next paste it instead {container_id} in command bellow.
 
 ```bash
 docker exec -it {container_id} psql -U postgres
