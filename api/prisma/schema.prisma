@@ -12,7 +12,7 @@ model Log {
   email String  
   name  String?
   type  String
-  severity String
+  severity Int
   timestamp String
   message String
 }

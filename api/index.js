@@ -28,7 +28,7 @@ const init = async () => {
 
             const logs = []
 
-            payload ?.log ?.split('\n')?.forEach(l => {
+            payload?.log?.split('\n')?.forEach(l => {
                 try {
                     const parser = new RegExp(/(?<type>E|I|W)\s(?<severity>[0-9]{0,5})\s?(?<timestamp>[0-9]{0,5})\s?(?<message>.*)/)
                     logs.push(parser.exec(l).groups)
@@ -41,7 +41,9 @@ const init = async () => {
                 return {
                     ...log,
                     name: payload.name,
-                    email: payload.email
+                    email: payload.email,
+                    severity: Number(log.severity),
+
                 }
             })
 
@@ -51,12 +53,24 @@ const init = async () => {
                 })
 
             } catch (error) {
-                console.log(error)
-                return {
-                    msg: error
-                }
+                // do something..
             }
-            return extendedLogs.filter(p => Number(p.severity) > 50)
+
+            let response;
+
+            try {
+                response = await request.server.app.db.log.findMany({
+                    where: {
+                        severity: {
+                            gt: 50
+                        }
+                    }
+                })
+            } catch (error) {
+                // do something..
+            }
+
+            return response
 
         },
         options: {
@@ -65,7 +79,6 @@ const init = async () => {
                     email: Joi.string().email().required(),
                     name: Joi.string().required(),
                     log: Joi.string().required(),
-
                 }),
             },
         },
