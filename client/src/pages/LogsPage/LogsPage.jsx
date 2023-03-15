@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '../components/Form';
-import Logs from '../components/Logs';
+import LogsForm from './components/LogsForm';
+import LogsTable from './components/LogsTable';
 import { fetchLogs } from 'Redux/logs/logsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,8 +18,8 @@ const LogsPage = () => {
 
     return (
         <React.Fragment>
-            <Form onSubmit={onSubmit}/>
-            <Logs logs={logs} />
+            <LogsForm onSubmit={onSubmit}/>
+            <LogsTable logs={logs} />
         </React.Fragment>
     )
 }

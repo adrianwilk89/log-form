@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import Logs from '../Logs';
+import LogsTable from '../LogsTable';
 
-describe('Logs', () => {
+describe('LogsTable', () => {
     test('should display 5 logs when they are provided', () => {
         const props = {
             logs: [
@@ -41,14 +41,14 @@ describe('Logs', () => {
             ]
         }
 
-        const {getAllByText} = render(<Logs {...props}/>)
+        const { getAllByText } = render(<LogsTable {...props}/>)
         expect(getAllByText(/E|I|W/)).toHaveLength(5)
     })
     test('should not display any logs when they are not provided', () => {
         const props = {
             logs: []
         }
-        const { queryAllByTestId } = render(<Logs {...props} />)
+        const { queryAllByTestId } = render(<LogsTable {...props} />)
         expect(queryAllByTestId('logsType').length).toBe(0)
     })
 })

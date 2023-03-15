@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyles.jsx';
-import LogsPage from './pages/LogsPage.jsx';
+import LogsPage from './pages/LogsPage/LogsPage.jsx';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 

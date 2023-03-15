@@ -1,7 +1,7 @@
 import React from 'react';
 import * as P from './parts';
 
-const Logs = ({logs}) => {
+const LogsTable = ({logs}) => {
 
     const shouldDisplayLogs = logs.length > 0
 
@@ -24,4 +24,4 @@ const Logs = ({logs}) => {
     )
 }
 
-export default Logs;
+export default LogsTable;

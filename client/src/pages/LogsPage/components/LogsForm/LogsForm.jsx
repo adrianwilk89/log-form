@@ -1,11 +1,11 @@
 import React from 'react'
-import { Form as FinalForm, Field } from 'react-final-form'
-import { validateName, validateEmail, validateLogs } from '../../utils/validators';
+import { Form, Field } from 'react-final-form'
+import { validateName, validateEmail, validateLogs } from '../../../../utils/validators';
 import * as P from './parts'
 
-const Form = ({onSubmit}) => {
+const LogsForm = ({onSubmit}) => {
     return (
-        <FinalForm
+        <Form
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting}) => (
                 <form onSubmit={handleSubmit}>
@@ -49,4 +49,4 @@ const Form = ({onSubmit}) => {
     )
 }
 
-export default Form;
+export default LogsForm;

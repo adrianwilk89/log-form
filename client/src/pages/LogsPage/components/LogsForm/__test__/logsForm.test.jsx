@@ -1,13 +1,13 @@
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
-import Form from '../Form';
+import LogsForm from '../LogsForm';
 
-describe('Form', () => {
+describe('LogsForm', () => {
     test('should call onSubmit function when proper values are provided', () => {
         const props = {
             onSubmit: jest.fn()
         }
-        const { getByLabelText, getByText } = render(<Form {...props} />);
+        const { getByLabelText, getByText } = render(<LogsForm {...props} />);
 
         const expected = {
             name: 'Adrian',
@@ -30,7 +30,7 @@ describe('Form', () => {
             onSubmit: jest.fn()
         }
 
-        const { getByLabelText, getByText, getAllByText } = render(<Form {...props} />);
+        const { getByLabelText, getByText, getAllByText } = render(<LogsForm {...props} />);
 
         fireEvent.change(getByLabelText('First Name'), { target: { value: '' } })
         fireEvent.change(getByLabelText('E-mail'), { target: { value: '' } })
@@ -48,7 +48,7 @@ describe('Form', () => {
             onSubmit: jest.fn()
         }
 
-        const { getByLabelText, getByText, getAllByText } = render(<Form {...props} />);
+        const { getByLabelText, getByText, getAllByText } = render(<LogsForm {...props} />);
 
         fireEvent.change(getByLabelText('First Name'), { target: { value: 1 } })
         fireEvent.change(getByLabelText('E-mail'), { target: { value: 'adrian' } })
