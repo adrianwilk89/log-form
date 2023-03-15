@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-require('react-dom/test-utils')
 import React from 'react';
 import Logs from '../Logs';
 
