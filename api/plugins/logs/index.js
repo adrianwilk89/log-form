@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const logParser = require('./parser/logParser');
 
 const LogsPlugin = {
     multiple: false,
@@ -15,28 +16,26 @@ const LogsPlugin = {
 
                  const logs = []
 
-                 payload ?.log ?.split('\n')?.forEach(l => {
-                     try {
-                         const parser = new RegExp(/(?<type>E|I|W)\s(?<severity>[0-9]{0,5})\s?(?<timestamp>[0-9]{0,5})\s?(?<message>.*)/)
-                         logs.push(parser.exec(l).groups)
-                     } catch (e) {
-                         // do something..
-                     }
+                 payload?.log?.split('\n')?.forEach(l => {
+                    const parsedLog = logParser(l);
+
+                    if (typeof parsedLog === 'object') {
+                        logs.push(parsedLog)
+                    }
                  })
 
-                 const extendedLogs = logs.map((log) => {
+                 const extendedByNameAndEmailLogs = logs.map((log) => {
                      return {
                          ...log,
                          name: payload.name,
                          email: payload.email,
                          severity: Number(log.severity),
-
                      }
                  })
 
                  try {
                      await request.server.app.db.log.createMany({
-                         data: extendedLogs
+                         data: extendedByNameAndEmailLogs
                      })
 
                  } catch (error) {
