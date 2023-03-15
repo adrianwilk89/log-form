@@ -6,7 +6,7 @@
 ## Software requirements 
 To run this project localy you have to install
  - Docker - for ```API```
- - Node - for ```CLIENT```
+ - Node >=14.17 - for ```CLIENT```
 
 ## Technologies 
 I used the following technologies to create this project
