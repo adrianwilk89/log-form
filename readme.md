@@ -47,7 +47,7 @@ If you want to check records in database run following commands
 ```bash
 docker exec -it {container_id} psql -U postgres
 ```
-next, connect to database logs running following command
+next, connect to database ```logs``` running following command
 ```
 \c logs
 ```
