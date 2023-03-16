@@ -54,7 +54,7 @@ next, connect to database ```logs``` running following command
 
 and select records from table by following example command
 ```sql
-SELET * FROM "Log" LIMIT 2;
+SELECT * FROM "Log" LIMIT 2;
 ```
 
 ## Testing
