@@ -62,3 +62,7 @@ To run client app tests go to ```/client``` folder and run following command
 ```bash
 npm run test
 ```
+To run api tests go to ```/api``` folder and run following command
+```bash
+npm run test
+```
