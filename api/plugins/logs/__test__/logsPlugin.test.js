@@ -2,9 +2,18 @@ const init = require('../../../server').init
 
 describe('logsPlugin', () => {
     let server;
-
+    let mockDb;
     beforeEach(async () => {
         server = await init();
+
+        mockDb = {
+            log: {
+                createMany: jest.fn(() => Promise.resolve(null)),
+                findMany: jest.fn(() => Promise.resolve(null))
+            }
+        }
+
+        server.app.db = mockDb;
     });
 
     afterEach(async () => {
@@ -13,14 +22,6 @@ describe('logsPlugin', () => {
 
     test('should create 2 records when 2 logs are provided', async () => {
 
-        const mockDb = {
-            log: {
-                createMany: jest.fn(() => Promise.resolve(null)),
-                findMany: jest.fn(() => Promise.resolve(null))
-            }
-        }
-
-        server.app.db = mockDb;
 
         await server.inject({
             method: 'post',
@@ -31,7 +32,6 @@ describe('logsPlugin', () => {
                 log: 'E 1 1 test\nI 1 2 test\n'
             }
         });
-        expect(mockDb.log.createMany.mock.calls[0][0].data.length).toEqual(2);
         expect(mockDb.log.createMany.mock.calls[0][0]).toEqual({
             data: [{
                 email: "adrianwilk89@op.pl",
