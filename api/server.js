@@ -14,20 +14,7 @@ const server = Hapi.server({
     }
 });
 
-
-const init = async () => {
-
-    await server.initialize();
-    return server;
-};
-
-const start = async () => {
-
-    await initDb();
-
-    server.app.db = prisma;
-    server.validator(Joi);
-
+const registerRoutes = async () => {
     await server.register({
         plugin: LogsPlugin,
     }, {
@@ -35,6 +22,22 @@ const start = async () => {
             prefix: '/logs',
         },
     });
+}
+
+const init = async () => {
+    await registerRoutes();
+    await server.initialize();
+    return server;
+};
+
+const start = async () => {
+    await initDb();
+    await registerRoutes();
+
+    server.app.db = prisma;
+    server.validator(Joi);
+
+
 
 
     await server.start();

@@ -14,8 +14,8 @@ const LogsPlugin = {
                      payload
                  } = request
 
-                 const logs = []
-
+                 const logs = [];
+                 
                  payload?.log?.split('\n')?.forEach(l => {
                     const parsedLog = logParser(l);
 
@@ -23,7 +23,6 @@ const LogsPlugin = {
                         logs.push(parsedLog)
                     }
                  })
-
                  const extendedByNameAndEmailLogs = logs.map((log) => {
                      return {
                          ...log,
@@ -41,7 +40,6 @@ const LogsPlugin = {
                  } catch (error) {
                      // do something..
                  }
-
                  let response;
 
                  try {
