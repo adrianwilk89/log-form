@@ -40,6 +40,5 @@ export const LogsTimestamp = styled.div`
 
 export const LogsMessage = styled.div`
     flex: 1;
-    overflow: hidden;
 `;
 

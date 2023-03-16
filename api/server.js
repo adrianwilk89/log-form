@@ -14,7 +14,7 @@ const server = Hapi.server({
     }
 });
 
-const registerRoutes = async () => {
+const registerPlugins = async () => {
     await server.register({
         plugin: LogsPlugin,
     }, {
@@ -25,14 +25,14 @@ const registerRoutes = async () => {
 }
 
 const init = async () => {
-    await registerRoutes();
+    await registerPlugins();
     await server.initialize();
     return server;
 };
 
 const start = async () => {
     await initDb();
-    await registerRoutes();
+    await registerPlugins();
 
     server.app.db = prisma;
     server.validator(Joi);
