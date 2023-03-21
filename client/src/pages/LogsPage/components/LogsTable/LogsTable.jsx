@@ -1,5 +1,6 @@
 import React from 'react';
 import * as P from './parts';
+import PropTypes from "prop-types";
 
 const LogsTable = ({logs}) => {
 
@@ -22,6 +23,19 @@ const LogsTable = ({logs}) => {
                 </P.LogsRow>)}
         </P.Logs> : null
     )
+}
+
+LogsTable.propTypes = {
+    logs: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            email: PropTypes.string.isRequired,
+            message: PropTypes.string.isRequired,
+            severity: PropTypes.number.isRequired,
+            timestamp: PropTypes.string.isRequired,
+            type: PropTypes.oneOf(['E', 'W', 'I']).isRequired,
+        })
+    ),
 }
 
 export default LogsTable;

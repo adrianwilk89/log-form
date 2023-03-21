@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Field } from 'react-final-form'
 import { validateName, validateEmail, validateLogs } from '../../../../utils/validators';
 import * as P from './parts'
+import PropTypes from "prop-types";
 
 const LogsForm = ({onSubmit}) => {
     return (
@@ -47,6 +48,10 @@ const LogsForm = ({onSubmit}) => {
             )}
         />
     )
+}
+
+LogsForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
 export default LogsForm;
