@@ -13,6 +13,7 @@ module.exports = {
     resolve: {
         alias: {
             Redux: path.resolve(__dirname, 'src/redux'),
+            Common: path.resolve(__dirname, 'src/common'),
         },
         extensions: [".jsx", ".js"],
     },
