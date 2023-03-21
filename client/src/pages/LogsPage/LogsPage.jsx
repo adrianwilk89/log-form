@@ -15,6 +15,7 @@ const LogsPage = () => {
 
     const logsSlice = useSelector(state => state.logs)
     const { logs, loading } = logsSlice;
+    
     return (
         <React.Fragment>
             <LogsForm onSubmit={onSubmit}/>
