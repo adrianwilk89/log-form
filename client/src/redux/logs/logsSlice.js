@@ -1,20 +1,21 @@
 import {
-    createSlice, createAsyncThunk
+    createSlice,
+    createAsyncThunk
 } from '@reduxjs/toolkit'
 
 export const fetchLogs = createAsyncThunk('slice/fetch', async (values) => {
     try {
-         const response = await fetch(`${process.env.SERVER_URL}/logs`, {
-             method: 'POST',
-             headers: {
-                 "Content-Type": "application/json",
-             },
-             body: JSON.stringify(values)
-         })
-    const logs = await response.json()
-    return logs
+        const response = await fetch(`${process.env.SERVER_URL}/logs`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values)
+        })
+        const logs = await response.json()
+        return logs
 
-    } catch (error ) {
+    } catch (error) {
         throw Error(error)
     }
 })
@@ -44,9 +45,5 @@ const logsSlice = createSlice({
         }
     }
 })
-
-
-
-
 
 export default logsSlice.reducer;
