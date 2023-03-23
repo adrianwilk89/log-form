@@ -57,4 +57,25 @@ describe('LogsForm', () => {
         expect(getAllByText(/Invalid name/i)).toHaveLength(1)
         expect(getAllByText(/Invalid e-mail/i)).toHaveLength(1)
     })
+
+    test('should disable button during submitting', () => {
+
+        const promise = new Promise((resolve, reject) => {})
+
+        const props = {
+            onSubmit: jest.fn().mockImplementation(() => promise)
+        }
+
+        const { getByLabelText, getByText } = render(<LogsForm {...props} />);
+
+        fireEvent.change(getByLabelText('First Name'), { target: { value: 'adrian' } })
+        fireEvent.change(getByLabelText('E-mail'), { target: { value: 'adrianwilk89@op.pl' } })
+        fireEvent.change(getByLabelText('Logs'), { target: { value: 'I 6 Nothing to report' } })
+
+        const button = getByText(/submit/i)
+
+        fireEvent.click(button)  
+
+        expect(button.disabled).toEqual(true);
+    })
 })
