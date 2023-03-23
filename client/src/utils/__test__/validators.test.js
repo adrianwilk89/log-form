@@ -41,11 +41,4 @@ describe('Form', () => {
             })
         })
     })
-    describe('validateLogs', () => {
-        test('', () => {
-
-        })
-    })
-
-
 })
