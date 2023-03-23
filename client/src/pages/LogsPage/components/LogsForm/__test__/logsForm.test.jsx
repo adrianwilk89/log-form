@@ -42,7 +42,7 @@ describe('LogsForm', () => {
         expect(getAllByText(/Logs are required/i)).toHaveLength(1)
     })
 
-    test('should show invalid error hints when values are invalud', () => {
+    test('should show invalid error hints when values are invalid', () => {
 
         const props = {
             onSubmit: jest.fn()
